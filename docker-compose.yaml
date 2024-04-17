@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_container_nextjs
+    environment:
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: test123
+      POSTGRES_DB: mytestdb
+    ports:
+      - "5432:5432" # default port currently
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user-name@domain-name.com
+      PGADMIN_DEFAULT_PASSWORD: strong-password
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  postgres_data:
+  pgadmin-data:
