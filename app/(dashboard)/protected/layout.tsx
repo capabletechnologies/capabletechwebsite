@@ -6,8 +6,7 @@ import { Toaster } from "react-hot-toast";
 import AuthStatus from "@/components/auth-status";
 import { Suspense } from "react";
 import Script from 'next/script'
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import SideBar from "@/components/sidebar";
 
 import CookieConsent from "@/components/cookieconent";
 
@@ -53,9 +52,14 @@ export default async function RootLayout({
           {/* @ts-expect-error Async Server Component */}
           <AuthStatus />
         </Suspense>
+        <div className="relative min-h-screen md:flex" data-dev-hint="container">
+        <SideBar />
+
+        <main id="content" className="flex-1 p-6 bg-gray-400 lg:px-8">
         {children}
+        </main>
+        </div>
         {/* <CookieConsent /> */}
-        <Footer />
       </body>
     </html>
   );

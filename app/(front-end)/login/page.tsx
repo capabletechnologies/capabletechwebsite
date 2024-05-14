@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Form from "@/components/form";
 import Link from "next/link";
+import { SignIn } from "@/components/sign-in";
 
 export default function Login() {
   return (
-    <div className="flex h-screen w-screen items-center justify-center bg-gray-50">
-      <div className="z-10 w-full max-w-md overflow-hidden rounded-2xl border border-gray-100 shadow-xl">
-        <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center sm:px-16">
+    <div className="flex justify-center items-center w-screen h-screen bg-gray-50">
+      <div className="overflow-hidden z-10 w-full max-w-md rounded-2xl border border-gray-100 shadow-xl">
+        <div className="flex flex-col justify-center items-center px-4 py-6 pt-8 space-y-3 text-center bg-white border-b border-gray-200 sm:px-16">
           <Link href="/">
             <Image
               src="/logo.webp"
@@ -23,7 +24,9 @@ export default function Login() {
             Use your email and password to sign in
           </p>
         </div>
-        <Form type="login" />
+        {/* <Form type="login" /> */}
+
+        <SignIn/>
       </div>
     </div>
   );
